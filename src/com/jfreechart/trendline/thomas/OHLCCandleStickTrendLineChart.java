@@ -237,6 +237,6 @@ public class OHLCCandleStickTrendLineChart extends JFrame
 	{
 		initializeLoggingContext();
 		log.info("Init Start");
-		new OHLCCandleStickTrendLineChart("AMZN",Calendar.YEAR, -1,Interval.DAILY);
+		new OHLCCandleStickTrendLineChart("AAPL",Calendar.YEAR, -1,Interval.DAILY);
 	}	
 }

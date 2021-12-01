@@ -14,7 +14,7 @@ import org.apache.logging.log4j.core.LoggerContext;
  */
 public class LoggerManager {
 	public static void initializeLoggingContext(){
-		initializeLoggingContext("conf/log4j2.xml");
+		initializeLoggingContext("conf\\log4j2.xml");
 	}
 	
 	public static void initializeLoggingContext(String logFilePath){
