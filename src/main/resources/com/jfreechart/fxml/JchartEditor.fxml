@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.edencoding.controllers.SimpleFileEditorController">
+            fx:controller="com.jfreechart.controllers.JChartEditorController">
     <top>
         <MenuBar>
             <Menu text="File">
@@ -17,7 +17,7 @@
     </top>
     <center>
         <AnchorPane>
-            <TextArea fx:id="textArea" prefHeight="400.0" prefWidth="600.0" text="Load a text file using the menu"
+            <TextArea fx:id="textArea" prefHeight="400.0" prefWidth="600.0" text="Load chart here"
                       AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
                       AnchorPane.topAnchor="5.0"/>
         </AnchorPane>

@@ -1,6 +1,4 @@
-
-
-package com.edencoding.controllers;
+package com.jfreechart.controllers;
 
 /**
  *
@@ -27,7 +25,7 @@ import java.util.stream.Stream;
 
 import static java.util.logging.Level.SEVERE;
 
-public class SimpleFileEditorController {
+public class JChartEditorController {
     private File loadedFileReference;
     private FileTime lastModifiedTime;
 
@@ -59,7 +57,10 @@ public class SimpleFileEditorController {
          //   loadFileToTextArea(fileToLoad);
         }
     }
-
+    public void loadChanges(ActionEvent event) {
+       // loadFileToTextArea(loadedFileReference);
+        loadChangesButton.setVisible(false);
+    }
     public void saveFile(ActionEvent event) {
         try {
             FileWriter myWriter = new FileWriter(loadedFileReference);
