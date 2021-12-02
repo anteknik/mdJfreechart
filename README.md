@@ -17,7 +17,7 @@ mvn clean package exec:java -Dexec.mainClass=com.jfreechart.trendline.thomas.Com
 
 try the another below :
 
-mvn clean package exec:java -Dexec.mainClass=com.jfreechart.trendline.thomas.CombinedView.OHLCCandleStickTrendLineChart
+mvn clean package exec:java -Dexec.mainClass=com.jfreechart.trendline.thomas.OHLCCandleStickTrendLineChart
 
 mvn clean package exec:java -Dexec.mainClass=com.jfreechart.trendline.thomas.CombinedView.OHLCMultiSymbolTrendLineChart
 
