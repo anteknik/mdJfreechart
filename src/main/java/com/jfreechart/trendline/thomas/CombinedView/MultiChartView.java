@@ -93,7 +93,7 @@ public class MultiChartView extends Application{
 			public void handle(ActionEvent event) {
 
 				try {
-					                               System.out.println("click get value : "+(String)symbolcombo_box.getValue());
+					log.info("get value : "+(String)symbolcombo_box.getValue());
 					new OHLCMultiSymbolTrendLineChart((String)symbolcombo_box.getValue(),Calendar.YEAR, -10,Interval.DAILY);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
