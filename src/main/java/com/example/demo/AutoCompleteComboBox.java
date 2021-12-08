@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jfreechart.trendline.thomas.CombinedView;
+package com.example.demo;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

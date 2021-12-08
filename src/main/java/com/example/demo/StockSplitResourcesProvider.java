@@ -1,4 +1,4 @@
-package com.jfreechart.trendline.thomas.CombinedView;
+package com.example.demo;
 
 import java.io.IOException;
 import org.jsoup.Jsoup;

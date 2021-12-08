@@ -1,24 +1,7 @@
 /**
  *
  */
-package com.jfreechart.trendline.thomas.CombinedView;
-
-import static com.jfreechart.trendline.thomas.CombinedView.StockSplitResourcesProvider.SELECTOR;
-import static com.jfreechart.trendline.thomas.CombinedView.StockSplitResourcesProvider.URL;
-import static com.jfreechart.trendline.thomas.CombinedView.StockSplitResourcesProvider.getListStockSplits;
-import com.jfreechart.trendline.thomas.OHLCCandleStickTrendLineChart;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.example.demo;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -33,7 +16,19 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import yahoofinance.histquotes.Interval;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 //import yahoofinance.histquotes.Interval;
 
 /**
@@ -47,7 +42,7 @@ public class MultiChartView extends Application {
      */
     private static Stage topPrimaryStage;
     private static Logger log = LoggerFactory.getLogger(MultiChartView.class);
-    private static ArrayList stockName = new ArrayList();
+    private static List stockName = new ArrayList();
 
     public static void main(String args[]) {
         LoggerManager.initializeLoggingContext();
@@ -78,7 +73,7 @@ public class MultiChartView extends Application {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("EEE MMM dd, yyyy");
         LocalDate localDate = LocalDate.now();
         //LocalDate localDate = date.minusDays(1); //backdate
-        String urlparam = URL + "day=" + localDate + "&offset=0&sf=startdatetime&st=asc";
+        String urlparam = StockSplitResourcesProvider.URL + "day=" + localDate + "&offset=0&sf=startdatetime&st=asc";
          //
 
         Label symbolNameLabel = new Label("Symbol: ");
@@ -105,7 +100,7 @@ public class MultiChartView extends Application {
             public void handle(ActionEvent event) {
 
                 try {
-                    List<String> listSymbol = getListStockSplits(localDate, urlparam, SELECTOR);
+                    List<String> listSymbol = StockSplitResourcesProvider.getListStockSplits(localDate, urlparam, StockSplitResourcesProvider.SELECTOR);
                     String symbolcombo = (String) symbolcombo_box.getValue();
                     for (String symbol : listSymbol) {
                         if (symbolcombo.equalsIgnoreCase(symbol)) {

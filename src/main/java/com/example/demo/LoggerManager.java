@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jfreechart.trendline.thomas.CombinedView;
+package com.example.demo;
 
 import java.io.File;
 
