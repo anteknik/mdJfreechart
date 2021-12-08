@@ -71,8 +71,8 @@ public class MultiChartView extends Application {
 
         // params to get getListStockSplits
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("EEE MMM dd, yyyy");
-        LocalDate localDate = LocalDate.now();
-        //LocalDate localDate = date.minusDays(1); //backdate
+        LocalDate date = LocalDate.now();
+        LocalDate localDate = date.minusDays(1); //backdate
         String urlparam = StockSplitResourcesProvider.URL + "day=" + localDate + "&offset=0&sf=startdatetime&st=asc";
          //
 
@@ -98,21 +98,29 @@ public class MultiChartView extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-
+                boolean isSpliting= false;
+                String symbol="";
                 try {
                     List<String> listSymbol = StockSplitResourcesProvider.getListStockSplits(localDate, urlparam, StockSplitResourcesProvider.SELECTOR);
                     String symbolcombo = (String) symbolcombo_box.getValue();
-                    for (String symbol : listSymbol) {
-                        if (symbolcombo.equalsIgnoreCase(symbol)) {
-                            log.info(symbolcombo+" == "+ symbol);
-                            new OHLCCandleStickTrendLineChart(symbol, Calendar.YEAR, -1, Interval.DAILY);
-                            break;
-                        } else {
 
-                            log.info(symbolcombo+" != "+ symbol);
-                            new OHLCMultiSymbolTrendLineChart((String) symbolcombo_box.getValue(), Calendar.YEAR, -10, Interval.DAILY);
+                    for (String simbol : listSymbol) {
+                        if (symbolcombo.equalsIgnoreCase(simbol)) {
+                            log.info(symbolcombo+" == "+ simbol);
+                            isSpliting=true;
+                            symbol=simbol;
+                            //new OHLCCandleStickTrendLineChart(symbol, Calendar.YEAR, -1, Interval.DAILY);
                         }
-                        
+                        symbol=simbol;
+                    }
+                    if (isSpliting){
+                        log.info(symbolcombo+" == "+ symbol);
+
+                        new OHLCCandleStickTrendLineChart(symbol, Calendar.YEAR, -1, Interval.DAILY);
+                    }else {
+
+                        log.info(symbolcombo+" != "+ symbol);
+                        new OHLCMultiSymbolTrendLineChart((String) symbolcombo_box.getValue(), Calendar.YEAR, -1, Interval.DAILY);
                     }
 
                 } catch (Exception e) {
